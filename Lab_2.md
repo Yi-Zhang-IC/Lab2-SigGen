@@ -38,7 +38,7 @@ Examine the files **_sinegen.py_** and **_sinerom.mem_**. Make sure you understa
 
 **Step 2 - Create the sinegen module**
 
-This requires you to create a "top-level" module **_sinegen.sv_**, which includes two components: **_counter.sv_** and **_rom.sv_** as shown below. (See L2 slide 16).
+This requires you to create a "top-level" module **_sinegen.sv_**, which includes two components: **_counter.sv_** and **_rom.sv_** as shown below. (See L4 slide 22).
 
 <p align="center"> <img src="images/sinegen.jpg" /> </p>
 

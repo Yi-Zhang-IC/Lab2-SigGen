@@ -13,7 +13,7 @@ int main(int argc, char **argv, char **env) {
 
   Verilated::commandArgs(argc, argv);
   // init top verilog instance
-  Vtop* top = new Vtop;
+  auto top = new Vtop;
   // init trace dump
   Verilated::traceEverOn(true);
   VerilatedVcdC* tfp = new VerilatedVcdC;
@@ -43,7 +43,8 @@ int main(int argc, char **argv, char **env) {
     top->incr = vbdValue();
     // plot ROM output and print cycle count
     vbdPlot(int (top->dout), 0, 255);
-    vbdCycle(cycle);
+    // 0 and 255 is the min and max value for dout to plot
+    vbdCycle(cycle); //display cycle
 
     // either simulation finished, or 'q' is pressed
     if ((Verilated::gotFinish()) || (vbdGetkey()=='q')) 

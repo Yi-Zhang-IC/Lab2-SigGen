@@ -7,4 +7,6 @@ verilator -Wall --cc --trace top.sv rom2ports.sv addrCounter.sv adder.sv --exe s
 
 make -j -C obj_dir/ -f Vtop.mk Vtop
 
+ls /dev/ttyUSB* > vbuddy.cfg
+
 ./obj_dir/Vtop

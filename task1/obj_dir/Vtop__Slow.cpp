@@ -32,13 +32,13 @@ void Vtop::_initial__TOP__2(Vtop__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_initial__TOP__2\n"); );
     Vtop* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Variables
-    WData/*95:0*/ __Vtemp1[3];
+    WData/*95:0*/ __Vtemp2[3];
     // Body
     VL_WRITEF("Loading rom.\n");
-    __Vtemp1[0U] = 0x2e6d656dU;
-    __Vtemp1[1U] = 0x65726f6dU;
-    __Vtemp1[2U] = 0x73696eU;
-    VL_READMEM_N(true, 8, 256, 0, VL_CVT_PACK_STR_NW(3, __Vtemp1)
+    __Vtemp2[0U] = 0x2e6d656dU;
+    __Vtemp2[1U] = 0x65726f6dU;
+    __Vtemp2[2U] = 0x73696eU;
+    VL_READMEM_N(true, 8, 256, 0, VL_CVT_PACK_STR_NW(3, __Vtemp2)
                  , vlTOPp->top__DOT__sineRom__DOT__rom_array
                  , 0, ~0ULL);
 }

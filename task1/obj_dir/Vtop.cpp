@@ -69,21 +69,15 @@ void Vtop::_eval_initial_loop(Vtop__Syms* __restrict vlSymsp) {
 VL_INLINE_OPT void Vtop::_sequent__TOP__1(Vtop__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop::_sequent__TOP__1\n"); );
     Vtop* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Variables
-    CData/*7:0*/ __Vdly__top__DOT__address;
     // Body
-    __Vdly__top__DOT__address = vlTOPp->top__DOT__address;
     vlTOPp->dout = vlTOPp->top__DOT__sineRom__DOT__rom_array
         [vlTOPp->top__DOT__address];
-    if (vlTOPp->rst) {
-        __Vdly__top__DOT__address = 0U;
-    } else {
-        if (vlTOPp->en) {
-            __Vdly__top__DOT__address = (0xffU & ((IData)(vlTOPp->top__DOT__address) 
-                                                  + (IData)(vlTOPp->incr)));
-        }
-    }
-    vlTOPp->top__DOT__address = __Vdly__top__DOT__address;
+    vlTOPp->top__DOT__address = ((IData)(vlTOPp->rst)
+                                  ? 0U : (0xffU & ((IData)(vlTOPp->top__DOT__address) 
+                                                   + 
+                                                   ((IData)(vlTOPp->en)
+                                                     ? (IData)(vlTOPp->incr)
+                                                     : 0U))));
 }
 
 void Vtop::_eval(Vtop__Syms* __restrict vlSymsp) {

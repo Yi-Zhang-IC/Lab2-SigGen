@@ -91,7 +91,6 @@ VL_MODULE(Vsigdelay) {
     static void _eval_initial(Vsigdelay__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _eval_settle(Vsigdelay__Syms* __restrict vlSymsp) VL_ATTR_COLD;
     static void _sequent__TOP__1(Vsigdelay__Syms* __restrict vlSymsp);
-    static void _settle__TOP__2(Vsigdelay__Syms* __restrict vlSymsp);
   private:
     static void traceChgSub0(void* userp, VerilatedVcd* tracep);
     static void traceChgTop0(void* userp, VerilatedVcd* tracep);

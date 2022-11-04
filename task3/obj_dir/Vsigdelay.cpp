@@ -86,6 +86,11 @@ VL_INLINE_OPT void Vsigdelay::_sequent__TOP__1(Vsigdelay__Syms* __restrict vlSym
                                              + (IData)(vlTOPp->incr)));
         }
     }
+    if (vlTOPp->rd_en) {
+        vlTOPp->delayed_signal = vlTOPp->sigdelay__DOT__ram2ports__DOT__ram_array
+            [(0xffU & ((IData)(vlTOPp->sigdelay__DOT__wire1) 
+                       - (IData)(vlTOPp->offset)))];
+    }
     if (vlTOPp->wr_en) {
         __Vdlyvval__sigdelay__DOT__ram2ports__DOT__ram_array__v0 
             = vlTOPp->mic_signal;
@@ -100,15 +105,6 @@ VL_INLINE_OPT void Vsigdelay::_sequent__TOP__1(Vsigdelay__Syms* __restrict vlSym
     }
 }
 
-VL_INLINE_OPT void Vsigdelay::_settle__TOP__2(Vsigdelay__Syms* __restrict vlSymsp) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+    Vsigdelay::_settle__TOP__2\n"); );
-    Vsigdelay* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
-    vlTOPp->delayed_signal = vlTOPp->sigdelay__DOT__ram2ports__DOT__ram_array
-        [(0xffU & ((IData)(vlTOPp->sigdelay__DOT__wire1) 
-                   - (IData)(vlTOPp->offset)))];
-}
-
 void Vsigdelay::_eval(Vsigdelay__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vsigdelay::_eval\n"); );
     Vsigdelay* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
@@ -116,7 +112,6 @@ void Vsigdelay::_eval(Vsigdelay__Syms* __restrict vlSymsp) {
     if (((IData)(vlTOPp->clk) & (~ (IData)(vlTOPp->__Vclklast__TOP__clk)))) {
         vlTOPp->_sequent__TOP__1(vlSymsp);
     }
-    vlTOPp->_settle__TOP__2(vlSymsp);
     // Final
     vlTOPp->__Vclklast__TOP__clk = vlTOPp->clk;
 }

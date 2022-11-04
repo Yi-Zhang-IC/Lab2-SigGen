@@ -45,8 +45,6 @@ void Vsigdelay::final() {
 void Vsigdelay::_eval_settle(Vsigdelay__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vsigdelay::_eval_settle\n"); );
     Vsigdelay* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    // Body
-    vlTOPp->_settle__TOP__2(vlSymsp);
 }
 
 void Vsigdelay::_ctor_var_reset() {

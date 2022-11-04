@@ -3,15 +3,15 @@ module sigdelay #(
   parameter D_WIDTH = 8
 )(
   // interface signals
-  input  wire             clk,       // clock 
-  input  wire             rst,       // reset 
-  input  wire             en,        // counter enable
-  input  wire             rd_en,     // read enable
-  input  wire             wr_en,     // write enable
-  input  wire [A_WIDTH-1:0] incr,    // increment for addr counter
-  input  wire [A_WIDTH-1:0] offset,   // signal delay
-  input  wire [D_WIDTH-1:0] mic_signal,     // input data
-  output wire [D_WIDTH-1:0] delayed_signal    // output data
+  input  logic             clk,       // clock 
+  input  logic             rst,       // reset 
+  input  logic             en,        // counter enable
+  input  logic             rd_en,     // read enable
+  input  logic             wr_en,     // write enable
+  input  logic [A_WIDTH-1:0] incr,    // increment for addr counter
+  input  logic [A_WIDTH-1:0] offset,   // signal delay
+  input  logic [D_WIDTH-1:0] mic_signal,     // input data
+  output logic [D_WIDTH-1:0] delayed_signal    // output data
 );
 
   wire  [A_WIDTH-1:0]       wire1; // interconnect wire1

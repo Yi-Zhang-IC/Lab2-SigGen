@@ -3,16 +3,16 @@ module top #(
   parameter D_WIDTH = 8
 )(
   // interface signals
-  input  wire             clk,      // clock 
-  input  wire             rst,      // reset 
-  input  wire             en,       // enable
-  input  wire [D_WIDTH-1:0] incr,   // increment for addr counter
-  input  wire [D_WIDTH-1:0] offset, // offset
-  output wire [D_WIDTH-1:0] dout1,    // output data
-  output wire [D_WIDTH-1:0] dout2    // output data
+  input  logic             clk,      // clock 
+  input  logic             rst,      // reset 
+  input  logic             en,       // enable
+  input  logic [D_WIDTH-1:0] incr,   // increment for addr counter
+  input  logic [D_WIDTH-1:0] offset, // offset
+  output logic [D_WIDTH-1:0] dout1,    // output data
+  output logic [D_WIDTH-1:0] dout2    // output data
 );
 
-  wire  [A_WIDTH-1:0]       address;  // interconnect wire1
+
   wire  [A_WIDTH-1:0]       wire1;    // interconnect counter and adder/rom
   wire  [A_WIDTH-1:0]       wire2;    // interconnect adder and rom2ports
 

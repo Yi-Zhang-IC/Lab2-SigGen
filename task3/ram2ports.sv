@@ -16,9 +16,8 @@ logic [DATA_WIDTH-1:0] ram_array [2**ADDRESS_WIDTH-1:0];
 always_ff @(posedge clk) begin
     if(wr_en == 1'b1)
        ram_array[wr_addr]<= din;
-    if(rd_en == 1'b1)
-       dout <= ram_array [rd_addr];
-
 end
+
+assign dout = ram_array[rd_addr];
 
 endmodule
